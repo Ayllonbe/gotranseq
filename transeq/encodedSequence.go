@@ -21,21 +21,21 @@ func newEncodedSequence(buf *bytes.Buffer, headerSize int) encodedSequence {
 	headerSize += 4
 	binary.LittleEndian.PutUint32(s[0:4], uint32(headerSize))
 	copy(s[4:], buf.Bytes())
-	n:=0
+	neg:=0
 	for i, n := range s[headerSize:] {
 		switch n {
 		case '-':
-			n++
+			neg++
 		case 'A':
-			s[headerSize+i-n] = aCode
+			s[headerSize+i-neg] = aCode
 		case 'C':
-			s[headerSize+i-n] = cCode
+			s[headerSize+i-neg] = cCode
 		case 'G':
-			s[headerSize+i-n] = gCode
+			s[headerSize+i-neg] = gCode
 		case 'T', 'U':
-			s[headerSize+i-n] = tCode
+			s[headerSize+i-neg] = tCode
 		case 'N':
-			s[headerSize+i-n] = nCode
+			s[headerSize+i-neg] = nCode
 		default:
 			fmt.Printf("WARNING: invalid char in sequence %s: %s, ignoring", s[headerSize:], string(s[headerSize+i]))
 		}
