@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io"
 	"sync"
+	"strings"
 
 	"github.com/Ayllonbe/gotranseq/ncbicode"
 )
