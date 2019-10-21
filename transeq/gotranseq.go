@@ -198,7 +198,7 @@ Loop:
 	for scanner.Scan() {
 
 		line := scanner.Bytes()
-		fmt.Printf("%v\n", line)
+		fmt.Printf("%s\n", line)
 		if len(line) == 0 {
 			continue
 		}
