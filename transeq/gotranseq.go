@@ -200,7 +200,7 @@ Loop:
 
 		line := scanner.Bytes()
 		
-		fmt.Println(reflect.TypeOf(line))
+		fmt.Println(line)
 		if len(line) == 0 {
 			continue
 		}
