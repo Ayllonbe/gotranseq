@@ -197,7 +197,7 @@ func readSequenceFromFasta(ctx context.Context, inputSequence io.Reader, fnaSequ
 Loop:
 	for scanner.Scan() {
 
-		line := scanner.Bytes()
+		line := strings.ReplaceAll(scanner.Bytes(), "-", "")
 		fmt.Printf("%s\n", line)
 		if len(line) == 0 {
 			continue
