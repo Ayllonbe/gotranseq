@@ -5,7 +5,7 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/feliixx/gotranseq/transeq"
+	"github.com/Ayllonbe/gotranseq/transeq"
 	"github.com/jessevdk/go-flags"
 )
 
