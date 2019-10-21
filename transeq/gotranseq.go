@@ -8,7 +8,7 @@ import (
 	"io"
 	"sync"
 
-	"github.com/feliixx/gotranseq/ncbicode"
+	"github.com/Ayllonbe/gotranseq/ncbicode"
 )
 
 // Options struct to store required command line args
