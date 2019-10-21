@@ -197,9 +197,8 @@ func readSequenceFromFasta(ctx context.Context, inputSequence io.Reader, fnaSequ
 Loop:
 	for scanner.Scan() {
 
-		line := scanner.Bytes()
-		
-		fmt.Printf("%d\n",line)
+		line := bytes.ReplaceAll(scanner.Bytes(), []byte("-"), []byte(""))
+		fmt.Printf("%s\n",line)
 		if len(line) == 0 {
 			continue
 		}
@@ -215,6 +214,7 @@ Loop:
 			buf.Reset()
 			headerSize = len(line)
 		}
+		
 		buf.Write(line)
 	}
 
