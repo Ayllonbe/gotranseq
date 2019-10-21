@@ -24,6 +24,11 @@ func newEncodedSequence(buf *bytes.Buffer, headerSize int) encodedSequence {
 
 	for i, n := range s[headerSize:] {
 		switch n {
+		case '-':
+			copy(s[headerSize+i:], s[headerSize+i+1:]) // Shift a[i+1:] left one index.
+			s[len(s)-1] = ""     // Erase last element (write zero value).
+			s = s[:len(s)-1] 
+			i--
 		case 'A':
 			s[headerSize+i] = aCode
 		case 'C':
