@@ -147,7 +147,7 @@ func Translate(inputSequence io.Reader, out io.Writer, options Options) error {
 			defer wg.Done()
 
 			w := newWriter(codes, framesToGenerate, reverse, options.Alternative, options.Trim)
-
+    			fmt.Printf("%v\n", fnaSequences)
 			for sequence := range fnaSequences {
 
 				select {
@@ -155,7 +155,7 @@ func Translate(inputSequence io.Reader, out io.Writer, options Options) error {
 					return
 				default:
 				}
-				fmt.Printf("%v\n", sequence)
+				
 				w.translate(sequence)
 
 				if len(w.buf) > maxBufferSize {
