@@ -147,7 +147,7 @@ func Translate(inputSequence io.Reader, out io.Writer, options Options) error {
 			defer wg.Done()
 
 			w := newWriter(codes, framesToGenerate, reverse, options.Alternative, options.Trim)
-    			fmt.Printf("%v\n", fnaSequences)
+    		
 			for sequence := range fnaSequences {
 
 				select {
@@ -198,6 +198,7 @@ Loop:
 	for scanner.Scan() {
 
 		line := scanner.Bytes()
+		fmt.Printf("%v\n", line)
 		if len(line) == 0 {
 			continue
 		}
