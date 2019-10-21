@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"io"
 	"sync"
-	"strings"
 
 	"github.com/Ayllonbe/gotranseq/ncbicode"
 )
@@ -198,8 +197,9 @@ func readSequenceFromFasta(ctx context.Context, inputSequence io.Reader, fnaSequ
 Loop:
 	for scanner.Scan() {
 
-		line := strings.ReplaceAll(scanner.Bytes(), "-", "")
-		fmt.Printf("%s\n", line)
+		line := scanner.Bytes()
+		
+		fmt.Println(reflect.TypeOf(line))
 		if len(line) == 0 {
 			continue
 		}
