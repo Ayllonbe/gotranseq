@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"io"
 	"sync"
-	"reflect"
 
 	"github.com/Ayllonbe/gotranseq/ncbicode"
 )
@@ -200,7 +199,7 @@ Loop:
 
 		line := scanner.Bytes()
 		
-		fmt.Println(line)
+		fmt.Printf("%d\n",line)
 		if len(line) == 0 {
 			continue
 		}
